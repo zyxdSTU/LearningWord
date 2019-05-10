@@ -8,4 +8,11 @@
         android:layout_width="100dp"
         android:text="SHOW">
     </TextView>
+
+    <Button
+        android:id="@+id/test_button"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:text="测试按钮">
+    </Button>
 </LinearLayout>
