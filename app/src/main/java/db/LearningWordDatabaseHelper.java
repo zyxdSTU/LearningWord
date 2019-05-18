@@ -6,21 +6,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 public class LearningWordDatabaseHelper extends SQLiteOpenHelper {
-    private static final String CREATE_PART = "create table Part (partName text, primary key(partName))";
-    private static final String CREATE_CHAPTER = "create table Chapter(chapterName text, partName text," +
-            "primary key(chapterName),"+
-            "foreign key(partName) references Part(partName) on delete cascade on update cascade)";
+    private static final String CREATE_PART = "create table table_part (Part text, PartName text, primary key(Part))";
 
-    private static final String CREATE_SCENE = "create table Scene (sceneName text, chapterName text," +
-            "primary key(sceneName)," +
-            "foreign key(chapterName) references Chapter(chapterName) on delete cascade on update cascade)";
+    private static final String CREATE_CHAPTER = "create table table_chapter(Chapter text, ChapterName text," +
+            "Part text, foreign key(Part) references table_part(Part) on delete cascade on update cascade," +
+            "primary key(Chapter, ChapterName))";
 
-    private static final String CREATE_WORD = "create table Word(wordName text, sceneName text," +
-            "phaseName text, phaseChName text," +
-            "sameWordName text," +
-            "sentenceName text, sentenceCHName text," +
-            "primary key(wordName, sceneName)," +
-            "foreign key(sceneName) references Scene(sceneName) on delete cascade on update cascade)";
+    private static final String CREATE_WORD = "create table table_word(Word text, WordTranslation text," +
+            "Chapter text, ChapterName text, Example text, ExampleTranslation," +
+            "foreign key(Chapter, ChapterName) references table_chapter(Chapter, ChapterName) on delete cascade on update cascade)";
 
     private Context mContext;
 
@@ -32,7 +26,6 @@ public class LearningWordDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_PART);
         db.execSQL(CREATE_CHAPTER);
-        db.execSQL(CREATE_SCENE);
         db.execSQL(CREATE_WORD);
         Toast.makeText(mContext, "数据库执行创建步骤", Toast.LENGTH_SHORT).show();
     }

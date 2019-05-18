@@ -6,7 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.administrator.learningword.R;
+import activity.R;
+
 
 public class SearchFragment extends Fragment {
     @Override
