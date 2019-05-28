@@ -1,8 +1,11 @@
 package javabean;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class Word {
+public class Word implements Serializable {
     private String word;
     private String wordTranslation;
     private String chapter;

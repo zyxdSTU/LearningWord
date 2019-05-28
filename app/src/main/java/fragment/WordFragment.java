@@ -1,25 +1,28 @@
 package fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.util.List;
+
 import activity.R;
-import adapter.ChapterAdapter;
+import activity.WordActivity;
+import adapter.WordAdapter;
 import db.DataBaseUtil;
 import db.LearningWordDatabaseHelper;
-import javabean.Chapter;
+import javabean.Word;
 
-public class ChapterFragment extends Fragment {
+public class WordFragment extends Fragment {
     private Context mContext;
-    private List<Chapter> mList;
+    private List<Word> mList;
     private SQLiteDatabase db;
 
     private ShowFragment showFragment;
@@ -29,7 +32,9 @@ public class ChapterFragment extends Fragment {
 
         Bundle bundle = getArguments();
 
-        final String part = bundle.getString("Part");
+        String part = bundle.getString("Part");
+
+        String chapter = bundle.getString("Chapter");
 
         View view = inflater.inflate(R.layout.fragment_item, container, false);
 
@@ -39,11 +44,11 @@ public class ChapterFragment extends Fragment {
 
         showFragment = (ShowFragment) this.getParentFragment();
 
-        //showFragment.changePart(part);
+        //showFragment.changeChapter(part, chapter);
 
-        mList = DataBaseUtil.selectChapterList(db, part);
+        mList = DataBaseUtil.selectPartChapterWord(db, part, chapter);
 
-        ChapterAdapter adapter = new ChapterAdapter(mContext, R.layout.item, mList);
+        WordAdapter adapter = new WordAdapter(mContext, R.layout.item, mList);
 
         ListView listView = (ListView) view.findViewById(R.id.listView);
 
@@ -53,9 +58,11 @@ public class ChapterFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Chapter chapter = mList.get(position);
+                Word word = mList.get(position);
 
-                showFragment.goWordFragment(part, chapter.getChapter());
+                Intent intent  = new Intent(getActivity(), WordActivity.class);
+
+                startActivity(intent);
             }
         });
 

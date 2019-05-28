@@ -157,9 +157,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onBackPressed() {
         if(currentPosition == 0) {
             ShowFragment currentFragment = (ShowFragment) mList.get(currentPosition);
-            if(currentFragment.getFlag()) {
+            if(currentFragment.getFlag() == 1) {
                 //返回上一层
                 currentFragment.goPartFragment();
+                return;
+            }else if(currentFragment.getFlag() == 2) {
+                //返回上一层
+                currentFragment.goChapterFragment(null);
                 return;
             }
         }

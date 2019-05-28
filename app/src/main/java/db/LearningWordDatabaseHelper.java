@@ -13,8 +13,9 @@ public class LearningWordDatabaseHelper extends SQLiteOpenHelper {
             "primary key(Chapter, ChapterName))";
 
     private static final String CREATE_WORD = "create table table_word(Word text, WordTranslation text," +
-            "Chapter text, ChapterName text, Example text, ExampleTranslation," +
-            "foreign key(Chapter, ChapterName) references table_chapter(Chapter, ChapterName) on delete cascade on update cascade)";
+            "Chapter text, ChapterName text, Example text, ExampleTranslation text," +
+            "foreign key(Chapter, ChapterName) references table_chapter(Chapter, ChapterName) on delete cascade on update cascade," +
+            "primary key(Word, WordTranslation, Chapter, ChapterName, Example, ExampleTranslation))";
 
     private Context mContext;
 

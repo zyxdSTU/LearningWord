@@ -31,8 +31,9 @@ import util.Util;
 public class ShowFragment extends Fragment {
     private Context mContext;
 
-    private boolean flag = false;
+    private int flag = 0;
     private String part = null;
+    private String chapter = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -41,16 +42,18 @@ public class ShowFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_show, container, false);
 
-        if(flag == false) goPartFragment();
+        if(flag == 0) goPartFragment();
 
-        else goChapterFragment(part);
+        else if(flag == 1) goChapterFragment(part);
+
+        else goWordFragment(part, chapter);
 
         mContext = this.getContext();
 
         return view;
     }
 
-    public boolean getFlag() {return flag;}
+    public int getFlag() {return flag;}
 
 
     public void goPartFragment() {
@@ -62,11 +65,12 @@ public class ShowFragment extends Fragment {
 
         transaction.commit();
 
-        unChange();
+        changePart();
 
     }
 
     public void goChapterFragment(String part) {
+        if(part == null) part = this.part;
 
         FragmentManager fragmentManager = getChildFragmentManager();
 
@@ -79,19 +83,46 @@ public class ShowFragment extends Fragment {
         transaction.replace(R.id.frame_layout, chapterFragment);
 
         transaction.commit();
+
+        changeChapter(part);
     }
 
-    public void change(String part) {
-        flag = true;
-        this.part = part;
+    public void goWordFragment(String part, String chapter) {
+        if(part == null) part = this.part;
+        if(chapter == null) chapter = this.chapter;
+
+        FragmentManager fragmentManager = getChildFragmentManager();
+
+        FragmentTransaction  transaction = fragmentManager.beginTransaction();
+
+        Bundle bundle = new Bundle(); bundle.putString("Part", part); bundle.putString("Chapter", chapter);
+
+        WordFragment wordFragment = new WordFragment(); wordFragment.setArguments(bundle);
+
+        transaction.replace(R.id.frame_layout, wordFragment);
+
+        transaction.commit();
+
+        changeWord(part, chapter);
     }
 
-    public void unChange() {
-        flag = false;
-        this.part = null;
+    public void changePart() {
+        flag = 0;
+        this.part = null; this.chapter = null;
     }
 
-    public void tempDispose() {
+    public void changeChapter(String part) {
+        flag = 1;
+        this.part = part; this.chapter = null;
+    }
+
+    public void changeWord(String part, String chapter) {
+        flag = 2;
+        this.part = part; this.chapter = chapter;
+    }
+
+
+    public void tempOneDispose() {
         SQLiteOpenHelper dbHelper = new LearningWordDatabaseHelper(mContext, "LearningWord.db", null, 1);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -112,6 +143,41 @@ public class ShowFragment extends Fragment {
                 Log.d("Debug", ChapterName);
                 if (DataBaseUtil.selectPart(db, Part) == null) DataBaseUtil.insertPart(db, Part, PartName);
                 if (DataBaseUtil.selectChapter(db, Part, Chapter) == null) DataBaseUtil.insertChapter(db, Chapter, ChapterName,Part);
+            }
+        }catch (Exception e) {
+            Log.d("Debug", e.getMessage());
+        }
+
+    }
+    public void tempTwoDispose() {
+        SQLiteOpenHelper dbHelper = new LearningWordDatabaseHelper(mContext, "LearningWord.db", null, 1);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        try {
+            String element = "";
+            List<String> lines = Util.read("test.txt");
+            for(int i = 0; i < lines.size(); i++) {
+                element = lines.get(i).replaceAll("\r|\n",  "");
+                String [] strArr = element.split(",");
+
+
+                String Part = strArr[0]; String Chapter = strArr[1];
+                String Word = strArr[2]; String WordTranslation = strArr[3];
+                String Example = strArr[4]; String ExampleTranslation = strArr[5];
+                Log.d("Debug", Part);
+                Log.d("Debug", Chapter);
+                Log.d("Debug", Word);
+                Log.d("Debug", WordTranslation);
+                Log.d("Debug", Example);
+                Log.d("Debug", ExampleTranslation);
+
+                String chapterName = DataBaseUtil.selectChapter(db, Part, Chapter);
+                Word word = new Word();
+                word.setWord(Word); word.setWordTranslation(WordTranslation);
+                word.setChapter(Chapter); word.setChapterName(chapterName);
+                word.setExample(Example); word.setExampleTranslation(ExampleTranslation);
+
+                DataBaseUtil.insertWord(db, word);
             }
         }catch (Exception e) {
             Log.d("Debug", e.getMessage());

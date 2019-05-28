@@ -29,14 +29,9 @@ public class DataBaseUtil {
 
 
     public static void insertWord(SQLiteDatabase db, Word word) {
-        ContentValues values = new ContentValues();
-        values.put("Word", word.getWord());
-        values.put("WordTranslation", word.getWordTranslation());
-        values.put("Chapter", word.getChapter());
-        values.put("ChapterName", word.getChapterName());
-        values.put("Example",  word.getExample());
-        values.put("ExampleTranslation", word.getExampleTranslation());
-        db.insert("table_word", null, values);
+        String insertSentence = "insert or ignore into table_word values(?,?,?,?,?,?)";
+        db.execSQL(insertSentence,new String[]{word.getWord(), word.getWordTranslation(),
+        word.getChapter(), word.getChapterName(), word.getExample(), word.getExampleTranslation()});
     }
 
     public static String join(String delimit, List<String> strList) {
@@ -97,8 +92,7 @@ public class DataBaseUtil {
                 list.add(new Chapter(Chapter, ChapterName, Part));
             }while(cursor.moveToNext());
         }
-        if (list.size() == 0) return null;
-        else return list;
+        return list;
     }
 
     public static List<Chapter> selectAllChapter(SQLiteDatabase db) {
@@ -114,7 +108,26 @@ public class DataBaseUtil {
             }while(cursor.moveToNext());
         }
         Log.d("Debug", String.valueOf(list.size()));
-        if(list.size() == 0) return null;
-        else return list;
+        return list;
+    }
+
+    public static List<Word> selectPartChapterWord(SQLiteDatabase db, String Part, String Chapter) {
+        String ChapterName = DataBaseUtil.selectChapter(db, Part, Chapter);
+        Cursor cursor = db.query("table_word", null,"Chapter = ? and ChapterName = ?",new String[]{Chapter, ChapterName},null,null,null);
+        List<Word> list = new ArrayList<>();
+        if(cursor.moveToFirst()) {
+            do{
+                String Word = cursor.getString(cursor.getColumnIndex("Word"));
+                String WordTranslation = cursor.getString(cursor.getColumnIndex("WordTranslation"));
+                String Example = cursor.getString(cursor.getColumnIndex("Example"));
+                String ExampleTranslation = cursor.getString(cursor.getColumnIndex("ExampleTranslation"));
+                Word word = new Word();
+                word.setChapter(Chapter); word.setChapterName(ChapterName);
+                word.setWord(Word); word.setWordTranslation(WordTranslation);
+                word.setExample(Example); word.setExampleTranslation(ExampleTranslation);
+                list.add(word);
+            }while(cursor.moveToNext());
+        }
+         return list;
     }
 }
