@@ -1,0 +1,84 @@
+Part,Chapter,Word,WordTranslation,Example,ExampleTranslation
+3,4,transit,过境,the transit lounge at an airport,机场的中转候机楼
+3,4,transfer,转机,There is no direct flight from here to Hawaii.You'll need to transfer in Shanghai,从这里没有直接飞往夏威夷的飞机，你必须在上海转机
+3,4,stopover,中途停留,It's not a non-stop flight. We will make one layover in Sydney,这不是一家中途不过境其他地方的直达航班。我们会在悉尼中途停留
+3,4,touch down,着陆,The plane is scheduled to touch down at 7:50 AM,飞机预定在早上7点50着陆
+3,4,taxi,滑行，出租车,The plane is still taxiing on the runway.Please don't turnon your cell phone,飞机还在跑道上滑行，请不要打开手机
+3,4,disembark,下（车、船、飞机）,Passengers are well-advised to disembark in an orderly fashion,乘客最好遵守秩序依次下飞机
+3,4,arrive,到达,"When Janice arrived in Boston,she was already exhausted",当贾尼斯抵达波士顿时，他已经累坏了
+3,4,procedure,步骤,What is the standard procedure if I have something to declare,如果我有某样东西要申报，标准流程是什么
+3,4,immigration,移民监察局,go through immigration,通过移民检查
+3,4,purpose,目的,What is thr purpose of your visit?,你出行的目的是什么
+3,4,sightseeing,观光,go sightseeing,去观光
+3,4,baggage,领取行李,the baggage claim area,行李领取处
+3,4,luggage claim tag,行李领取标签,Please present your luggage claim tag,请出示你的行李领取标签
+3,4,carousel,行李输送带,The passengers picked up their luggage from the carousel,这些旅客从行李转盘领取自己的行李
+3,4,a baggage cart ,行李手推车,Can we get a baggage cart?,我们可以去找一辆行李手推车吗
+3,4,take responsibility fot sth,为某事负责,You need to take responsibility for losing my luggage ,你需要为弄丢我的行李负责
+3,4,nationality,国籍,What is your nationality,你是什么国籍
+3,4,expire,过期,i am afraid your visa has expire,恐怕你的签证过期了
+3,4,valid ,有效的,be valid for,有效期为
+3,4,visa ,签证,apply for visa ,申请签证
+3,4,custom,海关,go through customs,通过海关
+3,4,declare,申报,i have nothing to declare,我没有东西要申报
+3,4,a customs declaration form,海关申报单,Fill out the customs declaration form to declare,填写海关申报单申报物品
+3,4,personal belongings,个人物品,This diary is one of my most treasured possessions,这本日记是我最珍贵的财产之一
+3,4,look through,快速查看,The customs officer looked through my baggage,那位海关人员快速查看了我的行李
+3,4,limit ,限量,My ehthusiasm for learning English knows no limits ,我学英语的热诚没有极限
+3,4,contraband ,违禁品,The customs official confiscated the contraband from one of the passengers,海关官员没收了其中一位乘客的违禁品
+3,4,jet lag,时差反应,The thing that bothers me most when I travel abroad is that I get really bad jet lag,出国旅行时让我最感到烦恼的事情就是我常会深受时差反应之苦
+3,4,time zone ,时区,How many time zones will we cross when we go from NewYork to London?,我们从纽约飞到伦敦需要跨越几个时区
+3,4,length of stay,停留时间,My length of stay is two weeks,我的停留时间是两周
+3,4,browse ,在商店随意的看,browse through sth ,随意浏览某物
+3,4,gift-warp,将..包装成礼物,"Could you gift-warp this for me,please?",可以麻烦你帮我把这个包装成礼物吗
+3,4,a good buy ,划算的买卖,You can get a good buy at duty-free shop,你可以在免税店买些划算的东西
+3,4,bargain,买的很划算的东西；讨价还价,bargain with sb about sth,和某人就某物讨价还价
+3,4,stock,存货,be out of stock,没有库存了
+3,4,bulk,大量,buy in bulk,大批购买
+3,4,discount ,打折扣;折扣,at a discount ,打折扣
+3,4,konck+金额+off the price,降低某价格若干金额,The store owner knocked $20 off the price because of the item's defect,店家因为商品的瑕疵将价格降低了20美元
+3,4,means,财力,live within one's means,量入为出
+3,4,be over sb's budget,超出某人的预算,be within sb's budget ,在某人的预算范围内
+3,5,assemble,组合,"I can disassemble the parts,but can't assemble them",我会把零件分解，却无法等它们组合起来。
+3,5,load,装载；负载量,The pick-up is loaded with cement,这台小货车载满了水泥。
+3,5,manufacture,生产,The manufacture of newspapers requires a lot of wood pulp,报纸的制造需要许多木浆。
+3,5,process,过程；处理,The process of canning became simple after machines were introduced to factories,自从工厂引进机器后，制作罐头的过程变得简单。
+3,5,produce,生产,The factory produces 20000 cars a year,这家工厂年产两万辆车
+3,5,can,将（食品等）装罐；罐头,Alison works in a factory where they can fruit.,艾莉森在一间将水果制成罐头的工厂工作。
+3,5,ship,船；运送,The goods were carried from Asia to Europe by ship.,这些货经由海运从亚洲运往欧洲。
+3,5,sort,种类；把…分类,The staff members sorted clothes by size and color.,工作人员用尺寸和颜色将衣服分类。
+3,5,standardize,使标准化,Most tobacco factories have standardize the length of cigarettes.,大部分的烟草工厂都已经把香烟的长度规则化了。
+3,5,transport,运输；运输，运送,The company  arranges transport from one airport to another.,这家公式安排机场与机场间的运输。
+3,5,bury,埋,The foreman used a backhoe to bury the water pipes.,工头用反铲挖土机把水管掩埋起来。
+3,5,collapse,倒塌,Several people were injured as the scaffold at the construction site collapse.,工地的鹰架倒塌了，不少人因此受伤。
+3,5,drill,钻；钻头,Could you drill a hole in the wail for me?,你能不能帮我在墙上钻个洞？
+3,5,erect,搭建,Workers erected a barricade in case passersby accidently entered the site.,工人把护栏搭建起来，以免路人误入工地。
+3,5,hammer,榔头；用榔头敲,I drove the nail into the wail with a hammer.,我用榔头把钉子钉到墙上。
+3,5,lay bricks,砌砖,Tom instructed his son on how to lay bricks to build a wail.,汤姆指导他的儿子如何砌砖建墙。
+3,5,pave,铺,The construction workers were busy paving road.,马路工人正忙着铺路。
+3,5,blend,混合,How do you blend mortar for bricklaying.,你如何混合砌砖用的砂浆。
+3,5,dig,挖,Antony used an excavator to dig a ditch.,安东尼用挖土机挖了一个壕沟。
+3,5,shovel,铲子；铲,The wokdmen used a shovel to shovel pebbles onto the road.,工人用铲子铲起小石子往路上铺。
+3,5,weld,焊接,"To deter thieves ,the man built an iron fence with steel spikes welded to it.",为了遏制窃贼，这个男人建了一道焊满了钢钉的围墙。
+3,5,adopt,采用,"Regarding office renovation,Andrea adpoted the proposal of a famous designer.",关于办公室翻修，安迪利亚采用了一位著名设计师的提案。
+3,5,pick out…,挑选……,It's important to pick out the right color for your room.,为房间挑选合适的颜色很重要。
+3,5,arrange,布置,My boss suggested arranging the office according to feng shui.,我老板建议根据风水来布置办公室。
+3,5,furnish,配置家具；提供,I will not move into the house until it is fully furnished.,房子装配好家具后我才会搬进去。
+3,5,ornament,装饰品；装饰,Our stores are decorated with Chirstmas ornaments during the holiday season.,圣诞节假期期间，我们的店装饰着圣诞饰品。
+3,5,draft,草拟……；草图,The interior designer drafted a floor plan for my new house.,这位室内设计师为我的房子草拟了平面图。
+3,5,give sth a makeover改造,改造,It's time to give our kitchen a makeover.,是时候好好改造我们的厨房了
+3,5,renovate,翻新,The school has decided to renovate all the student dormitories this summer.,学校决定在这个夏天翻修所有的学生宿舍。
+3,5,paint,粉刷；油漆,I'd like to paint the room pink.,我想把房间粉刷成粉红色。
+3,5,coat,涂在...上,The painter coated the door with red paint.,油漆匠把红漆涂在门上。
+3,5,partition,隔板；隔开,There is no partition between the kitchen and the living room in this house.,这间房子的客厅与厨房之间没有隔墙。
+3,5,paste,黏贴,Decoration workers pasted wallpaper onto the wall.,装潢工人在墙上黏贴壁纸。
+3,5,install,安装,We will install your washing machine free of change.,我们可以免费为您装设洗衣机。
+3,5,yield,生产；产量,We burn waste to yield energy for electric power.,我们燃烧废弃物以生产能量来发电。
+3,5,operate,运转,This machinery operates night and day.,这个机械装置日夜运转。
+3,5,recall,召回,All the cars produced buy this company have been recalled because of mechanical problems.,该公司所生产的车辆皆因机械问题被召回。
+3,5,repair,修理,The truck is badly in need of repair.,着凉卡车急需修理。
+3,5,rectify,矫正；修正,"The foreman did his best to rectify the problem,but the damage was already done.",这位工头尽力矫正问题，但损害已造成。
+3,5,break down,发生故障,The machine broke down after it had run for a whole day,机器运作一整天后便出故障了。
+3,5,deliver,投递,The parts of the packing machine will be delivered to your company today.,包装机器所用的零件今天会送达贵公司。
+3,5,dispose,处置,Toxic wastes must be disposed of with care.,有毒废弃物一定要小心弃置。
+3,5,emit,排放,This factory emitted exhaust and was fined more than $100000.,该工厂排放废气，被罚的罚金超过10万美元。
