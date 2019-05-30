@@ -62,6 +62,8 @@ public class WordFragment extends Fragment {
 
                 Intent intent  = new Intent(getActivity(), WordActivity.class);
 
+                intent.putExtra("word", word);
+
                 startActivity(intent);
             }
         });

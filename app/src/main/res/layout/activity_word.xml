@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/origin"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.WordActivity">
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="80dp"
+            android:layout_width="match_parent">
+            <TextView
+                android:gravity="center_vertical"
+                android:text="   load"
+                android:textSize="40sp"
+                android:layout_weight="6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </TextView>
 
-</android.support.constraint.ConstraintLayout>
+            <ImageButton
+                android:background="@color/origin"
+                android:layout_gravity="center_vertical"
+                android:scaleType="centerInside"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/sound" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line"/>
+        <TextView
+            android:gravity="center_vertical"
+            android:text="   装载"
+            android:textSize="25sp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+</LinearLayout>

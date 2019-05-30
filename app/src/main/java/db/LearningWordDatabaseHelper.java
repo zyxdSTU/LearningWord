@@ -13,9 +13,14 @@ public class LearningWordDatabaseHelper extends SQLiteOpenHelper {
             "primary key(Chapter, ChapterName))";
 
     private static final String CREATE_WORD = "create table table_word(Word text, WordTranslation text," +
-            "Chapter text, ChapterName text, Example text, ExampleTranslation text," +
+            "Chapter text, ChapterName text," +
             "foreign key(Chapter, ChapterName) references table_chapter(Chapter, ChapterName) on delete cascade on update cascade," +
-            "primary key(Word, WordTranslation, Chapter, ChapterName, Example, ExampleTranslation))";
+            "primary key(Word, WordTranslation, Chapter, ChapterName))";
+
+    private static final String CREATE_INSTANCE = "create table table_instance(Example text, ExampleTranslation text," +
+            "Chapter text, ChapterName text, Word text, WordTranslation text," +
+            "foreign key(Chapter, ChapterName, Word, WordTranslation) references table_word(Chapter, ChapterName, Word, WordTranslation) on delete cascade on update cascade," +
+            "primary key(Example, ExampleTranslation, Chapter, ChapterName, Word, WordTranslation))";
 
     private Context mContext;
 
@@ -28,6 +33,7 @@ public class LearningWordDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_PART);
         db.execSQL(CREATE_CHAPTER);
         db.execSQL(CREATE_WORD);
+        db.execSQL(CREATE_INSTANCE);
         Toast.makeText(mContext, "数据库执行创建步骤", Toast.LENGTH_SHORT).show();
     }
 

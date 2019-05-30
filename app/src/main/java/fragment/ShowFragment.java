@@ -24,6 +24,7 @@ import adapter.PartAdapter;
 import db.DataBaseUtil;
 import db.LearningWordDatabaseHelper;
 import javabean.Chapter;
+import javabean.Instance;
 import javabean.Part;
 import javabean.Word;
 import util.Util;
@@ -49,6 +50,10 @@ public class ShowFragment extends Fragment {
         else goWordFragment(part, chapter);
 
         mContext = this.getContext();
+
+        tempOneDispose();
+
+        tempTwoDispose();
 
         return view;
     }
@@ -175,9 +180,12 @@ public class ShowFragment extends Fragment {
                 Word word = new Word();
                 word.setWord(Word); word.setWordTranslation(WordTranslation);
                 word.setChapter(Chapter); word.setChapterName(chapterName);
-                word.setExample(Example); word.setExampleTranslation(ExampleTranslation);
-
                 DataBaseUtil.insertWord(db, word);
+
+                Instance instance = new Instance(word);
+                instance.setExample(Example); instance.setExampleTranslation(ExampleTranslation);
+
+                DataBaseUtil.insertInstance(db, instance);
             }
         }catch (Exception e) {
             Log.d("Debug", e.getMessage());

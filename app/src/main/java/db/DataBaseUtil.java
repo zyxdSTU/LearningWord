@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javabean.Chapter;
+import javabean.Instance;
 import javabean.Part;
 import javabean.Word;
 
@@ -29,9 +30,15 @@ public class DataBaseUtil {
 
 
     public static void insertWord(SQLiteDatabase db, Word word) {
-        String insertSentence = "insert or ignore into table_word values(?,?,?,?,?,?)";
+        String insertSentence = "insert or ignore into table_word values(?,?,?,?)";
         db.execSQL(insertSentence,new String[]{word.getWord(), word.getWordTranslation(),
-        word.getChapter(), word.getChapterName(), word.getExample(), word.getExampleTranslation()});
+        word.getChapter(), word.getChapterName()});
+    }
+
+    public static void insertInstance(SQLiteDatabase db, Instance instance) {
+        String insertSentence = "insert or ignore into table_instance values(?,?,?,?,?,?)";
+        db.execSQL(insertSentence,new String[]{instance.getExample(), instance.getExampleTranslation(),
+                instance.getChapter(), instance.getChapterName(), instance.getWord(), instance.getWordTranslation()});
     }
 
     public static String join(String delimit, List<String> strList) {
@@ -66,8 +73,7 @@ public class DataBaseUtil {
                 list.add(new Part(Part, PartName));
             }while(cursor.moveToNext());
         }
-        if(list.size() == 0) return null;
-        else return list;
+        return list;
     }
 
     public static String selectChapter(SQLiteDatabase db, String Part, String Chapter) {
@@ -119,13 +125,31 @@ public class DataBaseUtil {
             do{
                 String Word = cursor.getString(cursor.getColumnIndex("Word"));
                 String WordTranslation = cursor.getString(cursor.getColumnIndex("WordTranslation"));
-                String Example = cursor.getString(cursor.getColumnIndex("Example"));
-                String ExampleTranslation = cursor.getString(cursor.getColumnIndex("ExampleTranslation"));
                 Word word = new Word();
                 word.setChapter(Chapter); word.setChapterName(ChapterName);
                 word.setWord(Word); word.setWordTranslation(WordTranslation);
-                word.setExample(Example); word.setExampleTranslation(ExampleTranslation);
                 list.add(word);
+            }while(cursor.moveToNext());
+        }
+         return list;
+    }
+
+    public static List<Instance> selectInstance(SQLiteDatabase db, Word word) {
+        String chapter = word.getChapter(); String chapterName = word.getChapterName();
+        String wordS = word.getWord();   String wordTranslation = word.getWordTranslation();
+
+        Cursor cursor = db.query("table_instance", null,"Chapter = ? and ChapterName = ? and Word = ? and WordTranslation = ?",
+                new String[]{chapter, chapterName, wordS, wordTranslation},null,null,null);
+        List<Instance> list = new ArrayList<>();
+        if(cursor.moveToFirst()) {
+            do{
+                String example = cursor.getString(cursor.getColumnIndex("Example"));
+                String exampleTranslation = cursor.getString(cursor.getColumnIndex("ExampleTranslation"));
+                Instance instance = new Instance();
+                instance.setExample(example); instance.setExampleTranslation(exampleTranslation);
+                instance.setChapter(chapter); instance.setChapterName(chapterName);
+                instance.setWord(wordS); instance.setWordTranslation(wordTranslation);
+                list.add(instance);
             }while(cursor.moveToNext());
         }
          return list;

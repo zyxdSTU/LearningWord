@@ -6,15 +6,22 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Word implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String word;
     private String wordTranslation;
     private String chapter;
     private String chapterName;
-    private String example;
-    private String exampleTranslation;
 
-    public Word() {}
+    public Word() {
 
+    }
+
+    public Word(String word, String wordTranslation, String chapter, String chapterName) {
+        this.word = word;
+        this.wordTranslation = wordTranslation;
+        this.chapter = chapter;
+        this.chapterName = chapterName;
+    }
 
     public String getWord() {
         return word;
@@ -32,14 +39,6 @@ public class Word implements Serializable {
         return chapterName;
     }
 
-    public String getExample() {
-        return example;
-    }
-
-    public String getExampleTranslation() {
-        return exampleTranslation;
-    }
-
     public void setWord(String word) {
         this.word = word;
     }
@@ -54,13 +53,5 @@ public class Word implements Serializable {
 
     public void setChapterName(String chapterName) {
         this.chapterName = chapterName;
-    }
-
-    public void setExample(String example) {
-        this.example = example;
-    }
-
-    public void setExampleTranslation(String exampleTranslation) {
-        this.exampleTranslation = exampleTranslation;
     }
 }

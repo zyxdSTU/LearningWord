@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/origin"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,6 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"></android.support.v4.view.ViewPager>
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+    </View>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -21,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <ImageButton
-                android:background="#F5F5F5"
+                android:background="@color/origin"
                 android:scaleType="centerInside"
                 android:src="@drawable/tab_show"
                 android:id="@+id/show_button"
@@ -44,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <ImageButton
-                android:background="#F5F5F5"
+                android:background="@color/origin"
                 android:scaleType="centerInside"
                 android:src="@drawable/tab_search"
                 android:id="@+id/search_button"
@@ -67,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <ImageButton
-                android:background="#F5F5F5"
+                android:background="@color/origin"
                 android:scaleType="centerInside"
                 android:src="@drawable/tab_io"
                 android:id="@+id/io_button"
