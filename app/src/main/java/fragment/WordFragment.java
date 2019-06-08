@@ -68,6 +68,7 @@ public class WordFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 }

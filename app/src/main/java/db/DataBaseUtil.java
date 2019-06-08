@@ -62,6 +62,18 @@ public class DataBaseUtil {
         else return PartName;
     }
 
+    public static String selectPartByChapter(SQLiteDatabase db, String Chapter, String ChapterName) {
+        String Part = "";
+        Cursor cursor = db.query("table_chapter",null,"Chapter = ? and ChapterName = ?",new String[]{Chapter, ChapterName},null,null,null);
+        if(cursor.moveToFirst()) {
+            do{
+                Part = cursor.getString(cursor.getColumnIndex("Part"));
+            }while(cursor.moveToNext());
+        }
+        if (Part == "") return null;
+        else return Part;
+    }
+
     public static List<Part> selectAllPart(SQLiteDatabase db) {
         Cursor cursor = db.query("table_part",null,null,null,null,null,null);
         List<Part> list = new ArrayList<Part>();
@@ -125,6 +137,60 @@ public class DataBaseUtil {
             do{
                 String Word = cursor.getString(cursor.getColumnIndex("Word"));
                 String WordTranslation = cursor.getString(cursor.getColumnIndex("WordTranslation"));
+                Word word = new Word();
+                word.setChapter(Chapter); word.setChapterName(ChapterName);
+                word.setWord(Word); word.setWordTranslation(WordTranslation);
+                list.add(word);
+            }while(cursor.moveToNext());
+        }
+         return list;
+    }
+
+    /**按照场景名查找单词**/
+    public static List<Word> selectWordByChapter(SQLiteDatabase db, String ChapterName) {
+        Cursor cursor = db.query("table_word", null,"ChapterName = ?",new String[]{ChapterName},null,null,null);
+        List<Word> list = new ArrayList<>();
+        if(cursor.moveToFirst()) {
+            do{
+                String Word = cursor.getString(cursor.getColumnIndex("Word"));
+                String WordTranslation = cursor.getString(cursor.getColumnIndex("WordTranslation"));
+                String Chapter = cursor.getString(cursor.getColumnIndex("Chapter"));
+                Word word = new Word();
+                word.setChapter(Chapter); word.setChapterName(ChapterName);
+                word.setWord(Word); word.setWordTranslation(WordTranslation);
+                list.add(word);
+            }while(cursor.moveToNext());
+        }
+         return list;
+    }
+
+    /**按照英文单词查找**/
+    public static List<Word> selectWordByWord(SQLiteDatabase db, String Word) {
+        Cursor cursor = db.query("table_word", null,"Word = ?",new String[]{Word},null,null,null);
+        List<Word> list = new ArrayList<>();
+        if(cursor.moveToFirst()) {
+            do{
+                String WordTranslation = cursor.getString(cursor.getColumnIndex("WordTranslation"));
+                String Chapter = cursor.getString(cursor.getColumnIndex("Chapter"));
+                String ChapterName = cursor.getString(cursor.getColumnIndex("ChapterName"));
+                Word word = new Word();
+                word.setChapter(Chapter); word.setChapterName(ChapterName);
+                word.setWord(Word); word.setWordTranslation(WordTranslation);
+                list.add(word);
+            }while(cursor.moveToNext());
+        }
+         return list;
+    }
+
+    /**按照中文释义查找**/
+    public static List<Word> selectWordByWordTranslation(SQLiteDatabase db, String WordTranslation) {
+        Cursor cursor = db.query("table_word", null,"WordTranslation = ?",new String[]{WordTranslation},null,null,null);
+        List<Word> list = new ArrayList<>();
+        if(cursor.moveToFirst()) {
+            do{
+                String Word = cursor.getString(cursor.getColumnIndex("Word"));
+                String Chapter = cursor.getString(cursor.getColumnIndex("Chapter"));
+                String ChapterName = cursor.getString(cursor.getColumnIndex("ChapterName"));
                 Word word = new Word();
                 word.setChapter(Chapter); word.setChapterName(ChapterName);
                 word.setWord(Word); word.setWordTranslation(WordTranslation);

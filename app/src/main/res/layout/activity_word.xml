@@ -13,15 +13,19 @@
             android:layout_height="80dp"
             android:layout_width="match_parent">
             <TextView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/word_textView"
+                android:fontFamily="@font/nvshen"
                 android:gravity="center_vertical"
                 android:text="   load"
-                android:textSize="40sp"
+                android:textSize="35sp"
                 android:layout_weight="6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
             </TextView>
 
             <ImageButton
+                android:id="@+id/word_sound_imageButton"
                 android:background="@color/origin"
                 android:layout_gravity="center_vertical"
                 android:scaleType="centerInside"
@@ -35,6 +39,9 @@
             android:layout_height="1dp"
             android:background="@color/line"/>
         <TextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/word_translation_textView"
+            android:fontFamily="@font/zhanku"
             android:gravity="center_vertical"
             android:text="   装载"
             android:textSize="25sp"
@@ -48,6 +55,7 @@
         android:background="@color/line"/>
 
     <ListView
+        android:id="@+id/instance_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>

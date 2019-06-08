@@ -3,9 +3,49 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_height="100dp"
-        android:layout_width="100dp"
-        android:text="SEARCH">
-    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:background="@drawable/text_rectangle_white">
+        <ImageButton
+            android:layout_margin="5dp"
+            android:id="@+id/search_button"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerInside"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search32"/>
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <ImageButton
+            android:layout_margin="5dp"
+            android:id="@+id/output_image_button"
+            android:layout_gravity="center_vertical"
+            android:scaleType="centerInside"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/output"/>
+    </LinearLayout>
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+    </View>
+    <ListView
+        android:id="@+id/result_list_View"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </ListView>
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+    </View>
 </LinearLayout>
